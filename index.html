@@ -8,7 +8,17 @@
 <body>
     <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
     <script>
-    
+        function grabPokemon(num) {
+            $.ajax({
+                url: "https://pokeapi.co/api/v2/pokemon/" + num + "/",
+                type: 'get',
+                success: function (data) {
+                    console.log(data.name)
+                    console.log(data.types[0].type.name);
+                    console.log(data.stats[0].base_stat);
+                }
+            })
+        }
     </script>
 </body>
 
