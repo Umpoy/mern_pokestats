@@ -8,14 +8,49 @@
 <body>
     <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
     <script>
+        function sendToDB(pokemon) {
+
+            const API_URL = 'http://localhost:5000/sendToDB';
+            fetch(API_URL, {
+                method: 'post',
+                body: JSON.stringify(pokemon),
+                headers: {
+                    'content-type': 'application/json'
+                }
+            }).then(response => response.json()).then((test) => {
+                console.log(test);
+            });
+
+
+        }
         function grabPokemon(num) {
             $.ajax({
                 url: "https://pokeapi.co/api/v2/pokemon/" + num + "/",
                 type: 'get',
                 success: function (data) {
-                    console.log(data.name)
-                    console.log(data.types[0].type.name);
-                    console.log(data.stats[0].base_stat);
+                    var pokeType
+                    if (data.types[1].type.name == undefined) {
+                        pokeType = { type1: data.types[0].type.name }
+                    } else {
+                        pokeType = {
+                            type1: data.types[0].type.name,
+                            type2: data.types[0].type.name
+                        }
+                    }
+                    var pokemon = {
+                        id: data.id,
+                        name: data.name,
+                        type: pokeType,
+                        stats: {
+                            hp: data.stats[5].base_stat,
+                            attack: data.stats[4].base_stat,
+                            deffense: data.stats[3].base_stat,
+                            sAttack: data.stats[2].base_stat,
+                            sDeffense: data.stats[1].base_stat,
+                            speed: data.stats[0].base_stat
+                        }
+                    }
+                    sendToDB(pokemon);
                 }
             })
         }
