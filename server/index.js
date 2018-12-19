@@ -1,6 +1,10 @@
 const express = require('express');
 const app = express();
 
+const mysql = require('mysql');
+const configDB = require('./config/database');
+const db = mysql.createConnection(configDB);
+
 const port = 5000;
 
 app.listen(port, () => {
