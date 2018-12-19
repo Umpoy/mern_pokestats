@@ -5,4 +5,4 @@ const port = 5000;
 
 app.listen(port, () => {
     console.log('Port running on localhost:' + port)
-})
+});
