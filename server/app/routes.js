@@ -7,7 +7,7 @@ module.exports = (app, db) => {
     });
 
     app.post('/sendToDB', (req, res) => {
-        let { id, name, type, stats } = req.body
+        let { id, name, type, stats, image } = req.body
         type = JSON.stringify(type);
         stats = JSON.stringify(stats);
         db.connect((err) => {
@@ -23,15 +23,30 @@ module.exports = (app, db) => {
                 if (result.length > 0) {
                     console.log('id is taken');
                 } else {
-                    let sql = "INSERT INTO `Pokemon`(`id`, `name`, `type`, `stats`) VALUES (" + id + ",'" + name + "','" + type + "','" + stats + "')";
+                    let sql = "INSERT INTO `Pokemon`(`id`, `name`, `type`, `stats`, `image`) VALUES (" + id + ",'" + name + "','" + type + "','" + stats + "','" + image + "')";
                     db.query(sql, (err, result) => {
                         if (err) {
                             throw err;
                         }
-                        console.log("saved to db")
+                        console.log("saved to " + name + " db")
                     })
                 }
             });
         });
+    });
+
+    app.get('/pokemonAPI', (req, res) => {
+        db.connect((err) => {
+            if (err) {
+                throw err
+            }
+            let sql = "SELECT * FROM `Pokemon` WHERE id > 0"
+            db.query(sql, (err, result) => {
+                if (err) {
+                    throw err;
+                }
+                res.send(result);
+            })
+        })
     })
 }

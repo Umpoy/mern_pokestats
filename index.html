@@ -28,7 +28,7 @@
                 success: function (data) {
                     var pokemon = {}
                     var pokeType = {}
-                    if (!data.types[1].type.name) {
+                    if (Object.keys(data.types).length == 1) {
                         pokeType = { type1: data.types[0].type.name }
                     } else {
                         pokeType = {
@@ -43,9 +43,9 @@
                         stats: {
                             hp: data.stats[5].base_stat,
                             attack: data.stats[4].base_stat,
-                            deffense: data.stats[3].base_stat,
+                            defense: data.stats[3].base_stat,
                             sAttack: data.stats[2].base_stat,
-                            sDeffense: data.stats[1].base_stat,
+                            sDefense: data.stats[1].base_stat,
                             speed: data.stats[0].base_stat
                         },
                         image: data.sprites.front_default
@@ -65,9 +65,20 @@
                     'Accept': 'application/json'
                 }
             }).then(response => response.json()).then((test) => {
-                console.log(test);
+
             });
         }
+        var n = localStorage.getItem('on_load_counter');
+        if (n === null) {
+            n = 0;
+        }
+        n++;
+        localStorage.setItem("on_load_counter", n);
+        grabPokemon(n)
+        // setTimeout(() => {
+        //     location.reload();
+        // }, 5000);
+        // location.reload()
         // i = 0
         // setInterval(() => {
         //     i++
