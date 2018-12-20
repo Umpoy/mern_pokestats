@@ -8,21 +8,7 @@
 <body>
     <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
     <script>
-        function sendToDB(pokemon) {
-
-            const API_URL = 'http://localhost:5000/sendToDB';
-            fetch(API_URL, {
-                method: 'post',
-                body: JSON.stringify(pokemon),
-                headers: {
-                    'content-type': 'application/json'
-                }
-            }).then(response => response.json()).then((test) => {
-                console.log(test);
-            });
-
-
-        }
+        var pokemon
         function grabPokemon(num) {
             $.ajax({
                 url: "https://pokeapi.co/api/v2/pokemon/" + num + "/",
@@ -34,7 +20,7 @@
                     } else {
                         pokeType = {
                             type1: data.types[0].type.name,
-                            type2: data.types[0].type.name
+                            type2: data.types[1].type.name
                         }
                     }
                     var pokemon = {
@@ -50,9 +36,32 @@
                             speed: data.stats[0].base_stat
                         }
                     }
-                    sendToDB(pokemon);
+
                 }
-            })
+            }).then(sendToDB(pokemon))
+        }
+        function sendToDB(pokemon) {
+
+            const API_URL = 'http://localhost:5000/sendToDB';
+            fetch(API_URL, {
+                method: 'post',
+                body: JSON.stringify(pokemon),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            }).then(response => response.json()).then((test) => {
+                console.log(test);
+            });
+            // const API = "http://localhost:5000/sendToDB"
+            // fetch(API,
+            //     {
+            //         method: "POST",
+            //         body: pokemon
+            //     })
+            //     .then(function (res) { return res.json(); })
+            //     .then(function (data) { alert(JSON.stringify(data)) })
+
         }
     </script>
 </body>
