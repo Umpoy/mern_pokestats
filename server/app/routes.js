@@ -6,7 +6,7 @@ module.exports = (app, db) => {
         res.send('Hello World');
     });
 
-    app.post('/test', (req, res) => {
+    app.post('/sendToDB', (req, res) => {
         console.log(req.body)
         // res.send('hello')
     })
