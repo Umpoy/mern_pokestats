@@ -7,7 +7,11 @@ module.exports = (app, db) => {
     });
 
     app.post('/sendToDB', (req, res) => {
-        console.log(req.body)
-        // res.send('hello')
+        db.connect((err) => {
+            if (err) {
+                throw err
+            }
+            console.log("Connected to DB!!!");
+        })
     })
 }
