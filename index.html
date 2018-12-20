@@ -20,14 +20,15 @@
         // }).then(response => response.json()).then((test) => {
         //     console.log('SENT DATA!!!!');
         // });
-        var pokemon
+
         function grabPokemon(num) {
             $.ajax({
                 url: "https://pokeapi.co/api/v2/pokemon/" + num + "/",
                 type: 'get',
                 success: function (data) {
-                    var pokeType
-                    if (data.types[1].type.name == undefined) {
+                    var pokemon = {}
+                    var pokeType = {}
+                    if (!data.types[1].type.name) {
                         pokeType = { type1: data.types[0].type.name }
                     } else {
                         pokeType = {
@@ -46,7 +47,8 @@
                             sAttack: data.stats[2].base_stat,
                             sDeffense: data.stats[1].base_stat,
                             speed: data.stats[0].base_stat
-                        }
+                        },
+                        image: data.sprites.front_default
                     }
                     sendToDB(pokemon)
                 }
@@ -65,16 +67,12 @@
             }).then(response => response.json()).then((test) => {
                 console.log(test);
             });
-            // const API = "http://localhost:5000/sendToDB"
-            // fetch(API,
-            //     {
-            //         method: "POST",
-            //         body: pokemon
-            //     })
-            //     .then(function (res) { return res.json(); })
-            //     .then(function (data) { alert(JSON.stringify(data)) })
-
         }
+        // i = 0
+        // setInterval(() => {
+        //     i++
+        //     grabPokemon(i)
+        // }, 5000)
     </script>
 </body>
 
