@@ -8,6 +8,18 @@
 <body>
     <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
     <script>
+        const hello = { data: 'SEND THIS DATA' }
+        const API_URL = 'http://localhost:5000/test';
+        fetch(API_URL, {
+            method: 'post',
+            body: JSON.stringify(hello),
+            headers: {
+                'content-type': 'application/json',
+                'Accept': 'application/json'
+            }
+        }).then(response => response.json()).then((test) => {
+            console.log('SENT DATA!!!!');
+        });
         var pokemon
         function grabPokemon(num) {
             $.ajax({
