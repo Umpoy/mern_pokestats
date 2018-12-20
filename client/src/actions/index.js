@@ -1,10 +1,7 @@
 import pokeApi from '../api/pokeAPI';
 
-export const fetchPokemon = async () => {
-    const promise = pokeApi.get('/pokemonAPI');
+export const fetchPokemon = () => async dispatch => {
+    const response = await pokeApi.get('/pokemonAPI');
 
-    return {
-        type: 'FETCH_POKEMON',
-        payload: promise
-    }
+    dispatch({ type: 'FETCH_POKEMON', payload: response })
 }
