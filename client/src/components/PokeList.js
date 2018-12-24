@@ -10,9 +10,8 @@ class PokeList extends Component {
     renderList() {
         return this.props.pokemon.map(index => {
             return (
-
-                < div className="item" key={index.id} >
-                    <h1 className="pokeName">{index.name.charAt(0).toUpperCase() + index.name.slice(1)}</h1>
+                < div className="item" key={index.id}>
+                    <h3 className="pokeName">{index.name.charAt(0).toUpperCase() + index.name.slice(1)}</h3>
                     <img src={index.image} alt={index.name}></img>
                 </div >
             )
@@ -20,10 +19,8 @@ class PokeList extends Component {
     }
 
     render() {
-        console.log(this.props.pokemon)
         return (
             <div>
-                <h1>Pokemon List</h1>
                 <div>{this.renderList()}</div>
             </div>
         )

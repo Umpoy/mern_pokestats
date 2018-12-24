@@ -5,3 +5,11 @@ export const fetchPokemon = () => async dispatch => {
 
     dispatch({ type: 'FETCH_POKEMON', payload: response.data })
 }
+
+export const selectPokemon = (pokemon) => {
+    return {
+        type: 'POKEMON_SELECTED',
+        payload: pokemon
+    }
+}
+
