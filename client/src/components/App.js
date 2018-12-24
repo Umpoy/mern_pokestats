@@ -1,5 +1,6 @@
 import React from 'react';
 import PokeList from './PokeList';
+import PokeStats from './PokeStats';
 
 const App = () => {
     return (
@@ -9,7 +10,7 @@ const App = () => {
                     <PokeList />
                 </div>
                 <div className="column eight wide">
-                    <PokeDetail />
+                    <PokeStats />
                 </div>
             </div>
         </div>
