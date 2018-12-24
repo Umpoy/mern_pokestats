@@ -6,10 +6,24 @@ class PokeList extends Component {
     componentDidMount() {
         this.props.fetchPokemon();
     }
+
+    renderList() {
+        return this.props.pokemon.map(index => {
+            return (
+                <div className="item" key={index.id}>
+                    <img src={index.image}></img>
+                </div>
+            )
+        })
+    }
+
     render() {
         console.log(this.props.pokemon)
         return (
-            <div>Pokémon List</div>
+            <div>
+                <h1>Pokemon List</h1>
+                <div>{this.renderList()}</div>
+            </div>
         )
     }
 }
