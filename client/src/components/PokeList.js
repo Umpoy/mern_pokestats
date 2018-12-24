@@ -7,10 +7,15 @@ class PokeList extends Component {
         this.props.fetchPokemon();
     }
     render() {
+        console.log(this.props.pokemon)
         return (
             <div>Pokémon List</div>
         )
     }
 }
 
-export default connect(null, { fetchPokemon })(PokeList);
+const mapStateToProps = state => {
+    return { pokemon: state.pokemon }
+}
+
+export default connect(mapStateToProps, { fetchPokemon })(PokeList);
