@@ -6,15 +6,16 @@ const PokeStats = ({ pokemon }) => {
         return <h3>Select a Pokemon</h3>
     }
     return (
-        <div className="pokemonStats">
+        < div className="pokemonStats" >
             <h3>Stats for: {pokemon.name}</h3>
-        </div>
+        </div >
 
     );
 }
 
 const mapStateToProps = (state) => {
-    return { pokemon: state.selectedPoke }
+    console.log('state: ', state);
+    return { pokemon: state.selectedPokemon }
 }
 
 export default connect(mapStateToProps)(PokeStats);

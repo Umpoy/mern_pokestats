@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPokemon } from '../actions';
+import { fetchPokemon, selectPokemon } from '../actions';
 
 class PokeList extends Component {
     componentDidMount() {
@@ -8,9 +8,10 @@ class PokeList extends Component {
     }
 
     renderList() {
-        return this.props.pokemon.map(index => {
+        return this.props.pokemon.map((index) => {
+            console.log(index)
             return (
-                < div className="item" key={index.id}>
+                < div className="item" key={index.id} onClick={() => this.props.selectPokemon(index)}>
                     <h3 className="pokeName">{index.name.charAt(0).toUpperCase() + index.name.slice(1)}</h3>
                     <img src={index.image} alt={index.name}></img>
                 </div >
@@ -31,4 +32,4 @@ const mapStateToProps = state => {
     return { pokemon: state.pokemon }
 }
 
-export default connect(mapStateToProps, { fetchPokemon })(PokeList);
+export default connect(mapStateToProps, { fetchPokemon, selectPokemon })(PokeList);
