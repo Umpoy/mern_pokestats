@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const PokeStats = ({ pokemon }) => {
+    console.log("pokemon: ", pokemon)
     if (!pokemon) {
         return <h3>Select a Pokemon</h3>
     }
@@ -14,7 +15,7 @@ const PokeStats = ({ pokemon }) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log('state: ', state);
+    console.log(state)
     return { pokemon: state.selectedPokemon }
 }
 

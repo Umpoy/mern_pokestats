@@ -28,7 +28,7 @@ module.exports = (app, db) => {
                         if (err) {
                             throw err;
                         }
-                        console.log("saved to " + name + " db")
+                        console.log("saved " + name + " to db")
                     })
                 }
             });
