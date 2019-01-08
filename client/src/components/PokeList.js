@@ -9,17 +9,20 @@ class PokeList extends Component {
 
     renderList() {
         return this.props.pokemon.map((index) => {
-            // console.log(index)
             return (
-                < div className="item" key={index.id} onClick={() => this.props.selectPokemon(index)}>
+                < div className="item" key={index.id} >
                     <h3 className="pokeName">{index.name.charAt(0).toUpperCase() + index.name.slice(1)}</h3>
-                    <img src={index.image} alt={index.name}></img>
+                    {/* <img src={index.image} alt={index.name}></img> */}
+                    <button className="ui button primary" onClick={() => this.props.selectPokemon(index)}>
+                        {index.name.charAt(0).toUpperCase() + index.name.slice(1)} Stats
+                    </button>
                 </div >
             )
         })
     }
 
     render() {
+        console.log(this.props)
         return (
             <div>
                 <div>{this.renderList()}</div>
