@@ -67,17 +67,17 @@
 
             });
         }
-        // var x = localStorage.getItem('on_load_counter');
-        // if (x === null) {
-        //     n = x;
-        // }
-        // x++;
-        // localStorage.setItem("on_load_counter", x);
-        // grabPokemon(x)
-        // setTimeout(() => {
-        //     location.reload();
-        // }, 5000);
-        // location.reload()
+        var x = localStorage.getItem('on_load_counter');
+        if (x === null) {
+            x = 44;
+        }
+        x++;
+        localStorage.setItem("on_load_counter", x);
+        grabPokemon(x)
+        setTimeout(() => {
+            location.reload();
+        }, 5000);
+
 
     </script>
 </body>

@@ -8,7 +8,10 @@ const PokeStats = ({ pokemon }) => {
     if (!pokemon) {
         return <h3>Select a Pokemon</h3>
     }
-    pokemon.stats = JSON.parse(pokemon.stats);
+    if (typeof pokemon.stats === "string") {
+        pokemon.stats = JSON.parse(pokemon.stats);
+    }
+
     const data = [pokemon.stats.hp, pokemon.stats.attack, pokemon.stats.defense, pokemon.stats.sAttack, pokemon.stats.sDefense, pokemon.stats.speed];
     return (
         < div className="pokemonStats" >
