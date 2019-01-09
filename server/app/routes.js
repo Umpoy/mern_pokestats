@@ -50,5 +50,174 @@ module.exports = (app, db) => {
             }
             res.send(result);
         })
-    })
+    });
+
+    app.get('/pokemonAPI/grass', (req, res) => {
+        let sql = "SELECT * From `Pokemon` WHERE type LIKE '%grass%'";
+        db.query(sql, (err, result) => {
+            if (err) {
+                throw err;
+            }
+            res.send(result);
+        })
+    });
+
+    app.get('/pokemonAPI/poison', (req, res) => {
+        let sql = "SELECT * From `Pokemon` WHERE type LIKE '%poison%'";
+        db.query(sql, (err, result) => {
+            if (err) {
+                throw err;
+            }
+            res.send(result);
+        })
+    });
+
+    app.get('/pokemonAPI/flying', (req, res) => {
+        let sql = "SELECT * From `Pokemon` WHERE type LIKE '%flying%'";
+        db.query(sql, (err, result) => {
+            if (err) {
+                throw err;
+            }
+            res.send(result);
+        })
+    });
+
+    app.get('/pokemonAPI/normal', (req, res) => {
+        let sql = "SELECT * From `Pokemon` WHERE type LIKE '%normal%'";
+        db.query(sql, (err, result) => {
+            if (err) {
+                throw err;
+            }
+            res.send(result);
+        })
+    });
+
+    app.get('/pokemonAPI/fighting', (req, res) => {
+        let sql = "SELECT * From `Pokemon` WHERE type LIKE '%fighting%'";
+        db.query(sql, (err, result) => {
+            if (err) {
+                throw err;
+            }
+            res.send(result);
+        })
+    });
+
+    app.get('/pokemonAPI/ground', (req, res) => {
+        let sql = "SELECT * From `Pokemon` WHERE type LIKE '%ground%'";
+        db.query(sql, (err, result) => {
+            if (err) {
+                throw err;
+            }
+            res.send(result);
+        })
+    });
+
+    app.get('/pokemonAPI/rock', (req, res) => {
+        let sql = "SELECT * From `Pokemon` WHERE type LIKE '%rock%'";
+        db.query(sql, (err, result) => {
+            if (err) {
+                throw err;
+            }
+            res.send(result);
+        })
+    });
+
+    app.get('/pokemonAPI/bug', (req, res) => {
+        let sql = "SELECT * From `Pokemon` WHERE type LIKE '%bug%'";
+        db.query(sql, (err, result) => {
+            if (err) {
+                throw err;
+            }
+            res.send(result);
+        })
+    });
+
+    app.get('/pokemonAPI/ghost', (req, res) => {
+        let sql = "SELECT * From `Pokemon` WHERE type LIKE '%ghost%'";
+        db.query(sql, (err, result) => {
+            if (err) {
+                throw err;
+            }
+            res.send(result);
+        })
+    });
+
+    app.get('/pokemonAPI/water', (req, res) => {
+        let sql = "SELECT * From `Pokemon` WHERE type LIKE '%water%'";
+        db.query(sql, (err, result) => {
+            if (err) {
+                throw err;
+            }
+            res.send(result);
+        })
+    });
+
+    app.get('/pokemonAPI/fire', (req, res) => {
+        let sql = "SELECT * From `Pokemon` WHERE type LIKE '%fire%'";
+        db.query(sql, (err, result) => {
+            if (err) {
+                throw err;
+            }
+            res.send(result);
+        })
+    });
+
+    app.get('/pokemonAPI/electric', (req, res) => {
+        let sql = "SELECT * From `Pokemon` WHERE type LIKE '%electric%'";
+        db.query(sql, (err, result) => {
+            if (err) {
+                throw err;
+            }
+            res.send(result);
+        })
+    });
+
+    app.get('/pokemonAPI/psychic', (req, res) => {
+        let sql = "SELECT * From `Pokemon` WHERE type LIKE '%psychic%'";
+        db.query(sql, (err, result) => {
+            if (err) {
+                throw err;
+            }
+            res.send(result);
+        })
+    });
+    app.get('/pokemonAPI/ice', (req, res) => {
+        let sql = "SELECT * From `Pokemon` WHERE type LIKE '%ice%'";
+        db.query(sql, (err, result) => {
+            if (err) {
+                throw err;
+            }
+            res.send(result);
+        })
+    });
+
+    app.get('/pokemonAPI/dragon', (req, res) => {
+        let sql = "SELECT * From `Pokemon` WHERE type LIKE '%dragon%'";
+        db.query(sql, (err, result) => {
+            if (err) {
+                throw err;
+            }
+            res.send(result);
+        })
+    });
+    app.get('/pokemonAPI/dark', (req, res) => {
+        let sql = "SELECT * From `Pokemon` WHERE type LIKE '%dark%'";
+        db.query(sql, (err, result) => {
+            if (err) {
+                throw err;
+            }
+            res.send(result);
+        })
+    });
+    app.get('/pokemonAPI/fairy', (req, res) => {
+        let sql = "SELECT * From `Pokemon` WHERE type LIKE '%fairy%'";
+        db.query(sql, (err, result) => {
+            if (err) {
+                throw err;
+            }
+            res.send(result);
+        })
+    });
+
+
 }
