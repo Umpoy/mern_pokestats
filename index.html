@@ -55,7 +55,6 @@
             })
         }
         function sendToDB(pokemon) {
-
             const API_URL = 'http://localhost:5000/sendToDB';
             fetch(API_URL, {
                 method: 'post',
@@ -68,22 +67,18 @@
 
             });
         }
-        var n = localStorage.getItem('on_load_counter');
-        if (n === null) {
-            n = 0;
-        }
-        n++;
-        localStorage.setItem("on_load_counter", n);
-        grabPokemon(n)
+        // var x = localStorage.getItem('on_load_counter');
+        // if (x === null) {
+        //     n = x;
+        // }
+        // x++;
+        // localStorage.setItem("on_load_counter", x);
+        // grabPokemon(x)
         // setTimeout(() => {
         //     location.reload();
         // }, 5000);
         // location.reload()
-        // i = 0
-        // setInterval(() => {
-        //     i++
-        //     grabPokemon(i)
-        // }, 5000)
+
     </script>
 </body>
 
