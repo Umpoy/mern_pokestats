@@ -8,7 +8,9 @@ const PokeStats = ({ pokemon }) => {
     }
     return (
         < div className="pokemonStats" >
-            <h3>Stats for: {pokemon.name}</h3>
+            <h3>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h3>
+            <img src={pokemon.image} alt={pokemon.name}></img>
+            <h3></h3>
         </div >
 
     );
