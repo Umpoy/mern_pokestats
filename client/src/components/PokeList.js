@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchPokemon, selectPokemon } from '../actions';
 
 const scroll = {
-    // height: '100vh',
+    height: '100vh',
     overflow: 'auto'
 }
 
@@ -16,7 +16,7 @@ class PokeList extends Component {
         return this.props.pokemon.map((index) => {
             return (
                 < div className="item" key={index.id} >
-                    <h3 className="pokeName">{index.name.charAt(0).toUpperCase() + index.name.slice(1)}</h3>
+                    <h3 className="pokeName">{index.name.charAt(0).toUpperCase() + index.name.slice(1)} #{index.id}</h3>
                     <button className="ui button primary" onClick={() => this.props.selectPokemon(index)}>
                         {index.name.charAt(0).toUpperCase() + index.name.slice(1)}
                     </button>

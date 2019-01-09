@@ -11,7 +11,6 @@ module.exports = (app, db) => {
         console.log(stats)
         type = JSON.stringify(type);
         stats = JSON.stringify(stats);
-
         console.log("Connected to DB!!!");
         let sql = "SELECT `id` FROM `Pokemon` WHERE `id` = " + id
         db.query(sql, (err, result, fields) => {
@@ -34,18 +33,22 @@ module.exports = (app, db) => {
     });
 
     app.get('/pokemonAPI', (req, res) => {
-        // db.connect((err) => {
-        //     if (err) {
-        //         throw err
-        //     }
         let sql = "SELECT * FROM `Pokemon` WHERE id > 0"
         db.query(sql, (err, result) => {
-            // db.end();
             if (err) {
                 throw err;
             }
             res.send(result);
         })
-        // })
+    });
+
+    app.get('/pokemonAPI/steel', (req, res) => {
+        let sql = "SELECT * From `Pokemon` WHERE type LIKE '%steel%'";
+        db.query(sql, (err, result) => {
+            if (err) {
+                throw err;
+            }
+            res.send(result);
+        })
     })
 }
