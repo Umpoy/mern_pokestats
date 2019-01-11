@@ -7,8 +7,7 @@ const image = {
 }
 
 const PokeStats = ({ pokemon }) => {
-    const pokemonObj = JSON.parse(JSON.stringify(pokemon))
-    console.log("pokemon: ", pokemonObj)
+
     if (!pokemon) {
         return <h3>Select a Pokemon</h3>
     }
@@ -34,7 +33,6 @@ const PokeStats = ({ pokemon }) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return { pokemon: state.selectedPokemon }
 }
 

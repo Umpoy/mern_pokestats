@@ -13,3 +13,9 @@ export const selectPokemon = (pokemon) => {
     }
 }
 
+export const fetchGrass = () => async dispatch => {
+    const response = await pokeApi.get('/pokemonAPI/grass');
+
+    dispatch({ type: 'FETCH_GRASS', payload: response.data })
+}
+

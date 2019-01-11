@@ -27,12 +27,12 @@ class PokeList extends Component {
     }
 
     render() {
-        console.log(this.props)
+        console.log('props: ', this.props)
         return (
             <div>
-                <form action="">
+                <form action="get">
                     <select name="types" id="">
-                        <option value="all">All</option>
+                        <option value="all" selected>All</option>
                         <option value="grass">Grass</option>
                         <option value="poison">Poison</option>
                         <option value="flying">Flying</option>
@@ -62,7 +62,7 @@ class PokeList extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log(state)
+    console.log('state: ', state)
     return { pokemon: state.pokemon }
 }
 
