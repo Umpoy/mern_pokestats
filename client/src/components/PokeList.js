@@ -27,7 +27,7 @@ class PokeList extends Component {
     renderList() {
         return this.props.pokemon.map((index) => {
             return (
-                < div className="item" key={index.id} >
+                < div key={index.id} >
                     <h3 className="pokeName">{index.name.charAt(0).toUpperCase() + index.name.slice(1)}</h3>
                     <button className="ui button primary" onClick={() => this.props.selectPokemon(index)}>
                         {/* {index.name.charAt(0).toUpperCase() + index.name.slice(1)} */}
@@ -74,7 +74,7 @@ class PokeList extends Component {
                         <option value="fairy">Fairy</option>
                     </select>
                 </form>
-                <div style={scroll}>
+                <div className="ui stackable three column grid">
                     {this.renderList()}
                 </div>
             </div>
