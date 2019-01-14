@@ -1,10 +1,25 @@
 import React, { Component } from 'react';
 
 class PokeForm extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = { term: '' }
+
+        this.onFormChange = this.onFormChange.bind(this);
+    }
+
+    onFormChange(event) {
+        console.log(event.target.value)
+        this.setState({ term: event.target.value }, ()=>{
+            this.props.grabForm(this.state.term);
+        })
+    }
+
     render() {
         return (
             <form action="get">
-                <select name="types" defaultValue="all" id="" onChange={this.grabTypes}>
+                <select name="types" defaultValue="all" id="" onChange={this.onFormChange}>
                     <option value="all">All</option>
                     <option value="grass">Grass</option>
                     <option value="poison">Poison</option>

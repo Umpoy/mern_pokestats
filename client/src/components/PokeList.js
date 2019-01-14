@@ -12,8 +12,6 @@ class PokeList extends Component {
     constructor(props) {
         super(props);
         this.state = { type: null }
-
-        this.grabTypes = this.grabTypes.bind(this);
     }
 
     componentDidMount() {
@@ -39,20 +37,20 @@ class PokeList extends Component {
         })
     }
 
-    grabTypes(e) {
-        // console.log('Value:', e.target.value);
-        // this.setState({ type: e.target.value })
-        if (e.target.value === 'all') {
+    grabTypes = (e) => {
+        console.log('Value:', e);
+        this.setState({ type: e })
+        if (e === 'all') {
             this.props.fetchPokemon();
         } else {
-            this.props.fetchPokemonByType(e.target.value);
+            this.props.fetchPokemonByType(e);
         }
     }
 
     render() {
         return (
-            <div>
-                <PokeForm />
+            <div className="ui container grid">
+                <PokeForm grabForm={this.grabTypes} />
                 <div className="ui stackable three column grid">
                     {this.renderList()}
                 </div>

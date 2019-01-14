@@ -4,10 +4,9 @@ import PokeStats from './PokeStats';
 
 const App = () => {
     return (
-        <div className="ui container grid">
+        <div className="app">
             <PokeStats />
             <PokeList />
-
         </div>
     )
 }
