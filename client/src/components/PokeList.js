@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PokeForm from './PokeForm';
 import { fetchPokemon, fetchPokemonByType, selectPokemon } from '../actions';
 
 const scroll = {
@@ -51,7 +52,7 @@ class PokeList extends Component {
     render() {
         return (
             <div>
-                
+                <PokeForm />
                 <div className="ui stackable three column grid">
                     {this.renderList()}
                 </div>
