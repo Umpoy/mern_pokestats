@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PokeForm from './PokeForm';
+import PokeStats from './PokeStats'
 import { fetchPokemon, fetchPokemonByType, selectPokemon } from '../actions';
 
 const scroll = {
@@ -26,7 +27,7 @@ class PokeList extends Component {
     renderList() {
         return this.props.pokemon.map((index) => {
             return (
-                < div key={index.id} >
+                < div class="column" key={index.id} >
                     <h3 className="pokeName">{index.name.charAt(0).toUpperCase() + index.name.slice(1)}</h3>
                     <button className="ui button primary" onClick={() => this.props.selectPokemon(index)}>
                         {/* {index.name.charAt(0).toUpperCase() + index.name.slice(1)} */}
@@ -49,9 +50,12 @@ class PokeList extends Component {
 
     render() {
         return (
-            <div className="ui container grid">
-                <PokeForm grabForm={this.grabTypes} />
-                <div className="ui stackable three column grid">
+            <div className="ui container">
+                <div className="ui two column grid">
+                    <PokeForm grabForm={this.grabTypes} />
+                    <PokeStats />
+                </div>
+                <div className="ui stackable six column grid">
                     {this.renderList()}
                 </div>
             </div>

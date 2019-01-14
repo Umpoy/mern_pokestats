@@ -21,13 +21,13 @@ const PokeStats = ({ pokemon }) => {
 
 
     return (
-        < div className="pokemonStats" >
+        <div className="pokemonStats column">
             <h3>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)} #{pokemon.id}</h3>
             <img src={pokemon.image} alt={pokemon.name} style={image}></img>
             <Sparklines data={data}>
                 <SparklinesLine color="blue" />
             </Sparklines>
-        </div >
+        </div>
 
     );
 }

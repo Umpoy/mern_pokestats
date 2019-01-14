@@ -5,7 +5,7 @@ import PokeStats from './PokeStats';
 const App = () => {
     return (
         <div className="app">
-            <PokeStats />
+            {/* <PokeStats /> */}
             <PokeList />
         </div>
     )
