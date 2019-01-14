@@ -10,7 +10,8 @@ const topView = {
 
 const bottomView = {
     height: '60vh',
-    overflow: 'auto'
+    overflow: 'auto',
+    border: '2px solid black'
 }
 
 class PokeList extends Component {

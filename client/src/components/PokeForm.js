@@ -19,7 +19,9 @@ class PokeForm extends Component {
     render() {
         return (
             <div className="column">
+                <h1>PokeStats</h1>
                 <form action="get">
+                    Filter Pokemon by Types &nbsp;
                     <select name="types" defaultValue="all" id="" onChange={this.onFormChange}>
                         <option value="all">All</option>
                         <option value="grass">Grass</option>
@@ -42,6 +44,7 @@ class PokeForm extends Component {
                         <option value="fairy">Fairy</option>
                     </select>
                 </form>
+                <h3>PokeFact</h3>
             </div>
         )
     }
