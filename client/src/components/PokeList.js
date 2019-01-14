@@ -4,8 +4,12 @@ import PokeForm from './PokeForm';
 import PokeStats from './PokeStats'
 import { fetchPokemon, fetchPokemonByType, selectPokemon } from '../actions';
 
-const scroll = {
-    height: '100vh',
+const topView = {
+    height: '40vh'
+}
+
+const bottomView = {
+    height: '60vh',
     overflow: 'auto'
 }
 
@@ -51,11 +55,11 @@ class PokeList extends Component {
     render() {
         return (
             <div className="ui container">
-                <div className="ui two column grid">
+                <div className="ui two column grid" style={topView}>
                     <PokeForm grabForm={this.grabTypes} />
                     <PokeStats />
                 </div>
-                <div className="ui stackable six column grid">
+                <div className="ui stackable six column grid" style={bottomView}>
                     {this.renderList()}
                 </div>
             </div>

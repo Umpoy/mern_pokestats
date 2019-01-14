@@ -23,10 +23,20 @@ const PokeStats = ({ pokemon }) => {
     return (
         <div className="pokemonStats column">
             <h3>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)} #{pokemon.id}</h3>
-            <img src={pokemon.image} alt={pokemon.name} style={image}></img>
-            <Sparklines data={data}>
-                <SparklinesLine color="blue" />
-            </Sparklines>
+            <div class="ui grid">
+                <div class="eight wide column">
+                    <img src={pokemon.image} alt={pokemon.name} style={image}></img>
+                </div>
+                <div class="eight wide column">      <ul>
+                    <li className="hp">HP: {data[0]}</li>
+                    <li className="attack">Attack: {data[1]}</li>
+                    <li className="defense">Defense: {data[2]}</li>
+                    <li className="sAttack">Special Attack: {data[3]}</li>
+                    <li className="sDefense">Special Defense: {data[4]}</li>
+                    <li className="speed">Speed: {data[5]}</li>
+                </ul></div>
+
+            </div>
         </div>
 
     );
