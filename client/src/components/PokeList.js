@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPokemon, selectPokemon } from '../actions';
+import { fetchPokemon, fetchPokemonByType, selectPokemon } from '../actions';
 
 const scroll = {
     height: '100vh',
@@ -8,8 +8,20 @@ const scroll = {
 }
 
 class PokeList extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { type: null }
+
+        this.grabTypes = this.grabTypes.bind(this);
+    }
+
     componentDidMount() {
         this.props.fetchPokemon();
+        console.log('componentDidMount')
+    }
+
+    componentDidUpdate() {
+        console.log(this.props)
     }
 
     renderList() {
@@ -26,13 +38,22 @@ class PokeList extends Component {
         })
     }
 
+    grabTypes(e) {
+        // console.log('Value:', e.target.value);
+        // this.setState({ type: e.target.value })
+        if (e.target.value === 'all') {
+            this.props.fetchPokemon();
+        } else {
+            this.props.fetchPokemonByType(e.target.value);
+        }
+    }
+
     render() {
-        console.log('props: ', this.props)
         return (
             <div>
                 <form action="get">
-                    <select name="types" id="">
-                        <option value="all" selected>All</option>
+                    <select name="types" defaultValue="all" id="" onChange={this.grabTypes}>
+                        <option value="all">All</option>
                         <option value="grass">Grass</option>
                         <option value="poison">Poison</option>
                         <option value="flying">Flying</option>
@@ -62,8 +83,7 @@ class PokeList extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log('state: ', state)
     return { pokemon: state.pokemon }
 }
 
-export default connect(mapStateToProps, { fetchPokemon, selectPokemon })(PokeList);
+export default connect(mapStateToProps, { fetchPokemon, fetchPokemonByType, selectPokemon })(PokeList);

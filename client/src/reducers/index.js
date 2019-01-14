@@ -3,7 +3,6 @@ import pokeReducer from './pokeReducer';
 
 const selectedPokemonReducer = (selectedPokemon = null, action) => {
     if (action.type === "POKEMON_SELECTED") {
-        // console.log('action: ', action.payload)
         return action.payload
     }
     return selectedPokemon
@@ -11,5 +10,6 @@ const selectedPokemonReducer = (selectedPokemon = null, action) => {
 
 export default combineReducers({
     pokemon: pokeReducer,
-    selectedPokemon: selectedPokemonReducer
+    selectedPokemon: selectedPokemonReducer,
+    type: null
 });
