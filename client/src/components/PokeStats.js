@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Sparklines, SparklinesLine } from 'react-sparklines';
 import '../css/PokeStats.css';
 
 const image = {
@@ -31,7 +30,6 @@ const pink = {
     backgroundColor: '#FA92B2'
 }
 const PokeStats = ({ pokemon }) => {
-
     if (!pokemon) {
         return <h3>Select a Pokemon</h3>
     }
@@ -39,8 +37,6 @@ const PokeStats = ({ pokemon }) => {
         pokemon.stats = JSON.parse(pokemon.stats);
         pokemon.type = JSON.parse(pokemon.type);
     }
-    const types = Object.values(pokemon.type);
-    console.log(types);
     const data = [pokemon.stats.hp, pokemon.stats.attack, pokemon.stats.defense, pokemon.stats.sAttack, pokemon.stats.sDefense, pokemon.stats.speed];
     const hp = {
         width: (data[0] / 255) * 100 + '%',
@@ -66,7 +62,6 @@ const PokeStats = ({ pokemon }) => {
         width: (data[5] / 255) * 100 + '%',
         backgroundColor: '#F85888'
     }
-
     return (
         <div className="pokemonStats column">
             <h3>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)} #{pokemon.id}</h3>
@@ -112,7 +107,6 @@ const PokeStats = ({ pokemon }) => {
 
             </div>
         </div >
-
     );
 }
 

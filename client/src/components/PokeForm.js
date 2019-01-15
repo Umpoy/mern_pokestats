@@ -30,7 +30,6 @@ class PokeForm extends Component {
                 <p>{randomFact.description}</p>
             </div>
         )
-
     }
 
     render() {
@@ -61,7 +60,7 @@ class PokeForm extends Component {
                         <option value="fairy">Fairy</option>
                     </select>
                 </form>
-                <h3>PokeFact</h3>
+                <h3>PokeFact:</h3>
                 {this.renderPokemonFact()}
             </div>
         )
