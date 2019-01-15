@@ -59,7 +59,7 @@ class PokeList extends Component {
     render() {
         return (
             <div className="ui container">
-                <div className="ui two column grid" style={topView}>
+                <div className="ui stackable two column grid" >
                     <PokeForm grabForm={this.grabTypes} />
                     <PokeStats />
                 </div>
