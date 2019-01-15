@@ -11,7 +11,6 @@ const topView = {
 const bottomView = {
     height: '60vh',
     overflow: 'auto',
-    border: '2px solid black'
 }
 
 class PokeList extends Component {
@@ -32,7 +31,7 @@ class PokeList extends Component {
     renderList() {
         return this.props.pokemon.map((index) => {
             return (
-                < div class="column" key={index.id} >
+                < div className="column" key={index.id} >
                     <h3 className="pokeName">{index.name.charAt(0).toUpperCase() + index.name.slice(1)}</h3>
                     <button className="ui button primary" onClick={() => this.props.selectPokemon(index)}>
                         {/* {index.name.charAt(0).toUpperCase() + index.name.slice(1)} */}
