@@ -69,14 +69,14 @@
         }
         var x = localStorage.getItem('on_load_counter');
         if (x === null) {
-            x = 600;
+            x = 639;
         }
         x++;
         localStorage.setItem("on_load_counter", x);
         grabPokemon(x)
         setTimeout(() => {
             location.reload();
-        }, 5000);
+        }, 10000);
 
 
     </script>

@@ -65,11 +65,11 @@ const PokeStats = ({ pokemon }) => {
     return (
         <div className="pokemonStats column">
             <h3>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)} #{pokemon.id}</h3>
-            <div class="ui grid stackable">
-                <div class="four wide column">
+            <div className="ui grid stackable">
+                <div className="four wide column">
                     <img src={pokemon.image} alt={pokemon.name} style={image}></img>
                 </div>
-                <div class="twelve wide column">
+                <div className="twelve wide column">
                     <ul>
                         <li className="hp">
                             HP: {data[0]}
