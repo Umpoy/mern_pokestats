@@ -8,7 +8,6 @@ module.exports = (app, db) => {
 
     app.post('/sendToDB', (req, res) => {
         let { id, name, type, stats, image } = req.body
-        console.log(stats)
         type = JSON.stringify(type);
         stats = JSON.stringify(stats);
         console.log("Connected to DB!!!");
