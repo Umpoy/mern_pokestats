@@ -35,7 +35,7 @@ class PokeList extends Component {
     renderList() {
         return this.props.pokemon.map((index) => {
             return (
-                < div className="column" key={index.id} onClick={() => this.props.selectPokemon(index)} >
+                < div className="column pokemon" key={index.id} onClick={() => this.props.selectPokemon(index)} >
                     <img src={index.image} alt="" style={box} />
                 </div >
             )
@@ -59,7 +59,7 @@ class PokeList extends Component {
                     <PokeForm grabForm={this.grabTypes} />
                     <PokeStats />
                 </div>
-                <div className="ui stackable six column grid" style={bottomView}>
+                <div className="ui stackable six column grid" id="pokeList" style={bottomView}>
                     {this.renderList()}
                 </div>
             </div>
