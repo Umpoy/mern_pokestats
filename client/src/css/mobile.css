@@ -1,0 +1,12 @@
+
+
+@media  screen and (max-width: 767px) {
+    .ulStats {
+        padding-left: 0;
+    }
+
+    #pokeList div {
+        width: 33% !important;
+    }
+}
+
