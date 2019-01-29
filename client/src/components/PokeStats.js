@@ -70,7 +70,7 @@ const PokeStats = ({ pokemon }) => {
                     <img src={pokemon.image} alt={pokemon.name} style={image}></img>
                 </div>
                 <div className="twelve wide column">
-                    <ul>
+                    <ul className="ulStats">
                         <li className="hp">
                             HP: {data[0]}
                             <div className="bar" style={red}>
