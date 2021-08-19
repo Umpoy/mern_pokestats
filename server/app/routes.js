@@ -41,15 +41,25 @@ module.exports = (app, db) => {
         })
     });
 
-    app.get('/pokemonAPI/steel', (req, res) => {
-        let sql = "SELECT * From `Pokemon` WHERE type LIKE '%steel%'";
+    app.get('/pokemonAPI/:type', (req, res) => {
+        let sql = "SELECT * From `Pokemon` WHERE type LIKE '" + req.params.type + "l%'";
         db.query(sql, (err, result) => {
             if (err) {
                 throw err;
             }
             res.send(result);
         })
-    });
+    })
+
+    // app.get('/pokemonAPI/steel', (req, res) => {
+    //     let sql = "SELECT * From `Pokemon` WHERE type LIKE '%steel%'";
+    //     db.query(sql, (err, result) => {
+    //         if (err) {
+    //             throw err;
+    //         }
+    //         res.send(result);
+    //     })
+    // });
 
     app.get('/pokemonAPI/grass', (req, res) => {
         let sql = "SELECT * From `Pokemon` WHERE type LIKE '%grass%'";
